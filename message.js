@@ -58,7 +58,7 @@ export const updateMessage = (oldMessage, newMessage)=>{
     const tabMessages = getMessages()
     let messageToUpdate = tabMessages.find(b => b.message === oldMessage)
     let items = tabMessages.filter(b => b.message !== oldMessage)
-    messageToUpdate.message = newMessage
+    messageToUpdate['message'] = newMessage
     items = [...items, messageToUpdate]
     fs.writeFileSync('messages.txt', JSON.stringify(items), (err)=>{
         if (err) throw err;
